@@ -67,7 +67,7 @@ class GameFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentGameBinding>(
+        val binding: FragmentGameBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game, container, false)
 
         // Shuffles the questions and sets the question index to the first question.
@@ -99,13 +99,13 @@ class GameFragment : Fragment() {
                         binding.invalidateAll()
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
-//                        view.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
-                        Navigation.createNavigateOnClickListener(R.id.action_gameFragment_to_gameWonFragment)
+                        view.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
+//                        Navigation.createNavigateOnClickListener(R.id.action_gameFragment_to_gameWonFragment)
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
-//                    view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
-                    Navigation.createNavigateOnClickListener(R.id.action_gameFragment_to_gameOverFragment)
+                    view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+//                    Navigation.createNavigateOnClickListener(R.id.action_gameFragment_to_gameOverFragment)
                 }
             }
         }
