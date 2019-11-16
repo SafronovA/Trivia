@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameOverBinding
 
 class GameOverFragment : Fragment() {
@@ -32,12 +33,15 @@ class GameOverFragment : Fragment() {
         val binding: FragmentGameOverBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_over, container, false)
 
-        binding.tryAgainButton.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_gameOverFragment_to_gameFragment)
-        )
-//            binding.tryAgainButton.setOnClickListener { view: View ->
-//                view.findNavController().navigate(R.id.action_gameOverFragment_to_gameFragment)
-//            }
+//        binding.tryAgainButton.setOnClickListener(
+//                Navigation.createNavigateOnClickListener(R.id.action_gameOverFragment_to_gameFragment)
+//        )
+
+        binding.tryAgainButton.setOnClickListener { view: View ->
+//            view.findNavController().navigate(R.id.action_gameOverFragment_to_gameFragment)
+            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToGameFragment()) // adding safe arguments
+        }
+
         return binding.root
     }
 }
